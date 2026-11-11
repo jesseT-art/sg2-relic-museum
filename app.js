@@ -1508,7 +1508,7 @@ async function refreshMuseum3D() {
 
 async function initializeMuseum3D() {
   try {
-    const { createMuseum3D } = await import("./museum3d.js?v=18");
+    const { createMuseum3D } = await import("./museum3d.js?v=19");
     museum3D = await createMuseum3D({
       canvas: $("#museum3d"),
       onSelect(slot) {

@@ -159,6 +159,7 @@ export async function createMuseum3D({ canvas, onSelect }) {
   let inspecting = false;
   let disposed = false;
   let dragStart = null;
+  let hasPositionedCamera = false;
   const cameraTarget = {
     x: 0.8,
     y: 2.9,
@@ -521,6 +522,13 @@ export async function createMuseum3D({ canvas, onSelect }) {
     cameraTarget.z = 8.8;
     cameraTarget.lookX = caseX;
     cameraTarget.lookY = 2.6;
+    if (!hasPositionedCamera && !overview) {
+      camera.position.set(cameraTarget.x, cameraTarget.y, cameraTarget.z);
+      const initialLook = new THREE.Vector3(cameraTarget.lookX, cameraTarget.lookY, -0.15);
+      camera.userData.look = initialLook;
+      camera.lookAt(initialLook);
+      hasPositionedCamera = true;
+    }
   }
 
   function updateView({ activeSlot: nextActive, overview: nextOverview, inspecting: nextInspecting }) {

@@ -1,11 +1,11 @@
-const CACHE_NAME = "relic-museum-shell-v18";
+const CACHE_NAME = "relic-museum-shell-v19";
 const SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=18",
-  "./app.js?v=18",
-  "./data/artifacts.js?v=18",
-  "./museum3d.js?v=18",
+  "./styles.css?v=19",
+  "./app.js?v=19",
+  "./data/artifacts.js?v=19",
+  "./museum3d.js?v=19",
   "./vendor/three.module.min.js",
   "./vendor/THREE-LICENSE.txt",
   "./manifest.webmanifest",
