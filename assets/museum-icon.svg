@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b1711"/>
+      <stop offset="0.55" stop-color="#17100c"/>
+      <stop offset="1" stop-color="#48281b"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe9ae"/>
+      <stop offset="0.58" stop-color="#d3a14e"/>
+      <stop offset="1" stop-color="#96612e"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <rect x="44" y="44" width="424" height="424" rx="78" fill="none" stroke="#c9964b" stroke-opacity=".45" stroke-width="8"/>
+  <path d="M108 386V240c0-76 54-126 148-126s148 50 148 126v146H108Z" fill="#0e0907" stroke="url(#gold)" stroke-width="18"/>
+  <path d="M157 360V254c0-53 36-88 99-88s99 35 99 88v106H157Z" fill="#21130e" stroke="#65c8b0" stroke-opacity=".28" stroke-width="4"/>
+  <rect x="175" y="352" width="162" height="18" rx="4" fill="#8d592b" stroke="#f0cb7d" stroke-opacity=".5" stroke-width="3"/>
+  <path d="M202 226h108l-22 86h-64l-22-86Z" fill="url(#gold)"/>
+  <path d="M232 194h48v38h-48z" fill="#ffe9ae"/>
+  <text x="256" y="462" text-anchor="middle" fill="#f2e2bf" font-family="Courier New, monospace" font-size="42" font-weight="700" letter-spacing="8">SG·藏</text>
+</svg>

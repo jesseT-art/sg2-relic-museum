@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#120c09" />
+    <meta
+      name="description"
+      content="像素生存者2非官方玩家工具：收藏装备、记录故事，并导出4K典藏档案。"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="像素典藏馆" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>像素典藏馆 · 非官方玩家装备博物馆</title>
+    <link rel="icon" href="./assets/favicon-32.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./assets/app-icon-180.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css?v=18" />
+  </head>
+  <body>
+    <div id="orientationGate" class="orientation-gate" aria-live="polite">
+      <div class="orientation-device" aria-hidden="true"><span></span></div>
+      <p>请旋转至横屏</p>
+      <small>博物馆需要横向展开空间</small>
+    </div>
+
+    <section id="splash" class="splash" aria-label="开屏画面">
+      <div class="splash-grain" aria-hidden="true"></div>
+      <div class="splash-vignette" aria-hidden="true"></div>
+      <div class="splash-light splash-light-left" aria-hidden="true"></div>
+      <div class="splash-light splash-light-right" aria-hidden="true"></div>
+      <div class="splash-core">
+        <span class="brand-logo splash-logo" aria-label="SG.像素2"></span>
+        <p class="splash-kicker">PRIVATE RELIC HALL</p>
+        <h1>像素典藏馆</h1>
+        <p class="splash-subtitle">为历经漫长制作的装备，留下一座博物馆</p>
+        <span class="splash-rule" aria-hidden="true"></span>
+        <p class="splash-disclaimer">
+          本应用是非官方、纯本地的玩家二创工具，与 Cowbeans 及《像素生存者2》官方无隶属关系。
+          游戏名称、装备图像及相关素材版权归原权利人所有；本工具不提供游戏修改或账号数据读取。
+        </p>
+        <button id="skipSplashBtn" class="splash-skip" type="button">进入典藏馆</button>
+      </div>
+      <div class="splash-progress" aria-hidden="true"><span></span></div>
+    </section>
+
+    <div id="app" class="app-shell" aria-hidden="true">
+      <div class="screen-grain" aria-hidden="true"></div>
+      <div id="dustField" class="dust-field" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <div class="brand-lockup">
+          <span class="brand-logo brand-logo-small" aria-hidden="true"></span>
+          <span class="brand-divider"></span>
+          <button id="museumNameBtn" class="museum-wordmark" type="button">
+            <strong id="museumName">无名者装备博物馆</strong>
+          </button>
+        </div>
+
+        <div class="top-actions">
+          <button id="overviewBtn" class="view-switch" type="button">
+            <span class="overview-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            大场景
+          </button>
+          <button id="archiveBtn" class="text-button" type="button">馆藏档案</button>
+          <button id="settingsBtn" class="icon-button" type="button" aria-label="设置">⚙</button>
+        </div>
+      </header>
+
+      <main id="hallViewport" class="hall-viewport">
+        <canvas id="museum3d" class="museum-3d" aria-label="三维玻璃展柜展厅"></canvas>
+        <div id="sceneHotspots" class="scene-hotspots"></div>
+        <div class="hall-depth" aria-hidden="true">
+          <div class="ceiling-light ceiling-light-left"></div>
+          <div class="ceiling-light ceiling-light-right"></div>
+          <div class="hall-vignette"></div>
+        </div>
+
+        <div id="hallScene" class="hall-scene">
+          <div class="museum-architecture" aria-hidden="true">
+            <div class="ceiling-cornice"></div>
+            <div class="wall-panel-wall"></div>
+            <div class="display-bay-lights"></div>
+            <div class="museum-floor"></div>
+          </div>
+          <div id="cabinetTrack" class="cabinet-track"></div>
+        </div>
+
+        <button id="prevCabinetBtn" class="hall-nav hall-nav-left" type="button" aria-label="上一个展柜">
+          ‹
+        </button>
+        <button id="nextCabinetBtn" class="hall-nav hall-nav-right" type="button" aria-label="下一个展柜">
+          ›
+        </button>
+
+        <aside id="relicPanel" class="relic-panel" hidden>
+          <div class="relic-panel-inner">
+            <header class="relic-panel-header">
+              <div>
+                <p id="relicDate" class="relic-panel-date"></p>
+                <h2 id="relicTitle"></h2>
+              </div>
+              <button id="closeRelicPanelBtn" class="panel-close" type="button" aria-label="收起信息">×</button>
+            </header>
+            <p id="relicCategory" class="relic-panel-category"></p>
+            <div class="relic-divider" aria-hidden="true"></div>
+            <div id="relicDescription" class="relic-description"></div>
+            <footer class="relic-panel-actions">
+              <button class="quiet-button" type="button" data-action="edit-current">编辑</button>
+              <button class="quiet-button" type="button" data-action="move-current">换柜</button>
+              <button class="warm-button" type="button" data-action="export-current">导出 4K</button>
+            </footer>
+          </div>
+        </aside>
+
+        <div class="hall-edge-fade hall-edge-fade-left" aria-hidden="true"></div>
+        <div class="hall-edge-fade hall-edge-fade-right" aria-hidden="true"></div>
+      </main>
+
+      <footer class="bottom-hud">
+        <div class="collection-count">
+          <strong id="collectionCount">0 / 5</strong>
+        </div>
+        <button id="addRelicBtn" class="primary-action" type="button">
+          <span class="primary-plus">＋</span>
+          <span>记录新藏品</span>
+        </button>
+        <button id="exportHallBtn" class="secondary-action" type="button">
+          <span class="action-icon">4K</span>
+          <span>导出典藏档案</span>
+        </button>
+      </footer>
+    </div>
+
+    <div id="modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <header class="modal-header">
+          <div>
+            <span id="modalKicker" class="modal-kicker">RELIC ARCHIVE</span>
+            <h2 id="modalTitle">馆藏档案</h2>
+          </div>
+          <button class="modal-close" type="button" data-close-modal aria-label="关闭">×</button>
+        </header>
+        <div id="modalBody" class="modal-body"></div>
+      </section>
+    </div>
+
+    <div id="ceremony" class="ceremony" hidden aria-live="polite">
+      <div class="ceremony-rays" aria-hidden="true"></div>
+      <div class="ceremony-card">
+        <div class="ceremony-seal" aria-hidden="true">藏</div>
+        <h2>馆藏登记完成</h2>
+        <p id="ceremonyText">这件装备和它的故事，已经被正式收进博物馆。</p>
+        <button id="ceremonyCloseBtn" class="warm-button" type="button">点亮展柜</button>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <input id="screenshotInput" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+
+    <script src="./data/artifacts.js?v=18"></script>
+    <script src="./app.js?v=18" defer></script>
+  </body>
+</html>

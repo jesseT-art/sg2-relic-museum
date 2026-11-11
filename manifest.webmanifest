@@ -1,0 +1,27 @@
+{
+  "name": "像素典藏馆 · 非官方玩家装备博物馆",
+  "short_name": "像素典藏馆",
+  "description": "在传统博物馆式玻璃展柜中陈列玩家亲手制作并珍藏的装备，记录故事并导出 4K 典藏档案。",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#160e0b",
+  "theme_color": "#120c09",
+  "icons": [
+    {
+      "src": "./assets/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "lifestyle", "productivity"]
+}
